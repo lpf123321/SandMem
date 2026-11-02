@@ -1,0 +1,61 @@
+{
+  "artifact_type": "frozen_method_specification_not_runtime_config",
+  "method_name": "SandMem",
+  "name_status": "provisional_user_name",
+  "method_status": "frozen_by_user_2026-11-02",
+  "method_basis": "D116 plus approved first/last observation retention and oldest-observed eviction",
+  "training_free": true,
+  "backbone": {
+    "target": "Spatial-MLLM",
+    "frozen": true,
+    "roles": ["frame_relevance", "object_discovery", "answering", "verification"],
+    "checkpoint_selection": "separate_migration_contract_pending",
+    "no_implicit_checkpoint_selection": true
+  },
+  "memory": {
+    "representation": "instance_records_and_actual_observation_links",
+    "default_structure_limit_bytes": 67108864,
+    "overflow_policy": "first_last_then_oldest_observed",
+    "compact_only_on_overflow": true,
+    "retained_observations_per_instance_after_compaction": "earliest_and_latest_actual_source_frames_deduplicated",
+    "eviction_order": ["last_actual_observation_frame_ascending", "instance_id_ascending"],
+    "surviving_ids_preserved": true,
+    "evicted_ids_reused": false,
+    "archive_paging": false,
+    "pending_observation_pool": false,
+    "irreducible_overflow": "explicit_capacity_limited_preserve_previous_commit"
+  },
+  "retrieval": {
+    "query": "original_question_without_adapter_instruction_pollution",
+    "anchors": "lexical_name_overlap_then_description_fallback_then_all_records_fallback",
+    "context": "actual_same_frame_context_in_provided_images",
+    "selected_records": "complete_native_fields",
+    "real_frame_set": "preserve_existing_selected_frame_set_and_chronology"
+  },
+  "spatial_evidence": {
+    "segmentation": "existing_frozen_SAM",
+    "geometry": "existing_frozen_VGGT_local_estimates",
+    "diagram_is_actual_model_image_input": true,
+    "joint_input": ["original_question", "rendered_3D_sandbox", "related_complete_records", "actual_source_frames", "observation_provenance"],
+    "independent_references_not_globally_fused": true,
+    "metric_scale_assumed": false,
+    "new_identity_rules_or_VGGT_track": false
+  },
+  "answering": {
+    "two_pass_gate": "existing_sparse_input_flag_and_nonempty_actual_observation_links",
+    "two_pass": ["independent_original_frame_and_compact_record_draft", "joint_sandbox_verification"],
+    "otherwise": "joint_evidence_single_pass",
+    "routing_uses_task_labels_or_answers": false,
+    "changed_valid_draft_requires_provided_source_frame_citation": true,
+    "citation_certifies_visual_truth": false,
+    "QA_identity_revision": false,
+    "count_specific_solver": false
+  },
+  "evaluation_status": {
+    "Qwen_D116_D118_reference": {"recall_percent": 57.333333333333336, "offline_count_percent": 25.55, "streaming_count_percent": 26.945},
+    "reference_includes_new_capacity_policy": false,
+    "capacity_engineering_validation": "101_CPU_tests_passed",
+    "Spatial_full_method_metrics": null,
+    "formal_baseline_comparison_contract": "separate_task_not_selected_by_this_freeze"
+  }
+}

@@ -1,0 +1,91 @@
+# Training-free 长视频空间理解 —— 默认配置
+# 所有阈值/模型 ID/采样均为配置化; 不得在代码中硬编码个人绝对路径。
+
+paths:
+  work_dir: work
+  dirs: [frames, clips, local_obs, sandbox, qa, bench, out]
+
+# ---- 视频采样 (初始值来自 Proposal; 正式比较时与 baseline 对齐) ----
+video:
+  sample_fps: 1.0        # 观测采样率
+  clip_len: 16           # 每片段帧数
+  overlap: 4             # 相邻片段重叠帧数
+
+# ---- 模块 1: 视频感知 (冻结模型) ----
+perception:
+  discovery:
+    strategy: uniform_endpoints
+    frames_per_clip: 4
+  geometry:
+    box_estimator: aabb        # 用户确认的初版；仅包围已观测可靠点
+    min_points: 30             # 用户确认的开发起点，未校准
+    depth_conf_keep_fraction: 0.5  # 每片段置信度前 50%；分位点并列全部保留
+  mllm:
+    model_id: "Qwen/Qwen3-VL-2B-Instruct"   # 定位/发现用
+    revision: "89644892e4d85e24eaac8bacfd4f463576704203"
+    dtype: "bfloat16"
+    max_new_tokens: 4096
+    repetition_penalty: 1.05   # 用户确认的开发设置；需检查同类实例与数字生成
+  sam:
+    local_match_iou: 0.7       # 用户确认：唯一高 IoU 候选才复用局部编号
+    config: "configs/sam2.1/sam2.1_hiera_l.yaml"
+    checkpoint: "facebook/sam2.1-hiera-large"
+    revision: "665f8e2ad61cf5f53d65644ff27c8ee525124610"
+    checkpoint_file: "sam2.1_hiera_large.pt"
+    mask_erosion: 3
+    feature_layer: last        # 复用冻结图像编码器的区域特征
+  vggt:
+    checkpoint: "facebook/VGGT-1B"
+    revision: "860abec7937da0a4c03c41d3c269c366e82abdf9"
+    dtype: "bfloat16"
+    max_views: 16
+
+# ---- 模块 2: 空间对齐与实例关联 ----
+alignment:
+  match:
+    appearance_cosine_min: 0.60
+    center_distance_diagonal_max: 0.25
+    projection_iou_min: 0.30  # 用户确认的开发起点，未校准
+  geom:
+    estimator: ransac_umeyama_sim3
+    pixel_stride: 16
+    ransac_iterations: 256
+    min_inliers: 50
+    min_inlier_ratio: 0.5
+    residual_depth_fraction: 0.02
+    seed: 0                   # 用户确认的开发起点，未校准
+
+# ---- 模块 3: 长期沙盒记忆 ----
+memory:
+  retain_unresolved_observations: false  # 只留实例和实际视点；旧冻结配置不改
+  backend_max_bytes: 67108864  # 用户确认64 MiB；完整持久状态，禁止外存分页
+  capacity:
+    max_instances: null        # null=不限; 显式记录容量受限状态
+    max_viewpoints_per_extent: null
+    feature_dtype: "float32"
+
+# ---- 模块 4: 证据选择与回答 ----
+qa:
+  mllm:
+    model_id: "Qwen/Qwen3-VL-2B-Instruct"   # 与感知复用同一冻结 backbone
+    revision: "89644892e4d85e24eaac8bacfd4f463576704203"
+    dtype: "bfloat16"
+    max_new_tokens: 1024
+    temperature: 0.0
+  budget:
+    max_images: 8             # 开发诊断：沙盒图+真实帧合计，不是正式baseline预算
+    max_image_side: 768
+    max_visual_tokens: 8192
+    max_text_tokens: 4096
+    max_output_tokens: 1024
+  render:
+    draw_labels: true
+    color_by_instance: true
+
+# ---- 评测 ----
+eval:
+  vsibench:
+    hf_config: "debiased"
+    split: "test"
+  mc_answer_parse: "first_letter"
+  numeric_metric: "mra"

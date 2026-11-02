@@ -1,0 +1,164 @@
+{
+  "result_scope": "historical Qwen D116/D118; predates new capacity policy; not a Spatial score",
+  "summary": {
+    "recall": {
+      "queries": 300,
+      "score_percent": 57.333333333333336,
+      "D065_percent": 54.666666666666664,
+      "invalid": 0,
+      "two_pass_queries": 300,
+      "reused_queries": 30
+    },
+    "count": {
+      "queries": 200,
+      "score_percent": 25.55,
+      "D065_percent": 12.6,
+      "invalid": 0,
+      "two_pass_queries": 0,
+      "reused_queries": 24
+    },
+    "count_streaming": {
+      "queries": 2000,
+      "score_percent": 26.945,
+      "D065_percent": 21.79,
+      "invalid": 0,
+      "two_pass_queries": 0,
+      "reused_queries": 240
+    }
+  },
+  "task_duration_groups": [
+    {
+      "task": "count",
+      "duration": "10mins",
+      "queries": 50,
+      "score_percent": 20.0,
+      "D065_percent": 20.8,
+      "invalid": 0,
+      "two_pass_queries": 0,
+      "reused_queries": 6
+    },
+    {
+      "task": "count",
+      "duration": "120mins",
+      "queries": 50,
+      "score_percent": 13.6,
+      "D065_percent": 0.0,
+      "invalid": 0,
+      "two_pass_queries": 0,
+      "reused_queries": 6
+    },
+    {
+      "task": "count",
+      "duration": "30mins",
+      "queries": 50,
+      "score_percent": 40.0,
+      "D065_percent": 23.0,
+      "invalid": 0,
+      "two_pass_queries": 0,
+      "reused_queries": 6
+    },
+    {
+      "task": "count",
+      "duration": "60mins",
+      "queries": 50,
+      "score_percent": 28.6,
+      "D065_percent": 6.6,
+      "invalid": 0,
+      "two_pass_queries": 0,
+      "reused_queries": 6
+    },
+    {
+      "task": "count_streaming",
+      "duration": "10mins",
+      "queries": 500,
+      "score_percent": 22.1,
+      "D065_percent": 24.6,
+      "invalid": 0,
+      "two_pass_queries": 0,
+      "reused_queries": 60
+    },
+    {
+      "task": "count_streaming",
+      "duration": "120mins",
+      "queries": 500,
+      "score_percent": 22.1,
+      "D065_percent": 10.86,
+      "invalid": 0,
+      "two_pass_queries": 0,
+      "reused_queries": 60
+    },
+    {
+      "task": "count_streaming",
+      "duration": "30mins",
+      "queries": 500,
+      "score_percent": 34.38,
+      "D065_percent": 30.38,
+      "invalid": 0,
+      "two_pass_queries": 0,
+      "reused_queries": 60
+    },
+    {
+      "task": "count_streaming",
+      "duration": "60mins",
+      "queries": 500,
+      "score_percent": 29.2,
+      "D065_percent": 21.32,
+      "invalid": 0,
+      "two_pass_queries": 0,
+      "reused_queries": 60
+    },
+    {
+      "task": "recall",
+      "duration": "10mins",
+      "queries": 60,
+      "score_percent": 61.666666666666664,
+      "D065_percent": 61.666666666666664,
+      "invalid": 0,
+      "two_pass_queries": 60,
+      "reused_queries": 6
+    },
+    {
+      "task": "recall",
+      "duration": "120mins",
+      "queries": 60,
+      "score_percent": 51.666666666666664,
+      "D065_percent": 50.0,
+      "invalid": 0,
+      "two_pass_queries": 60,
+      "reused_queries": 6
+    },
+    {
+      "task": "recall",
+      "duration": "240mins",
+      "queries": 60,
+      "score_percent": 56.666666666666664,
+      "D065_percent": 48.333333333333336,
+      "invalid": 0,
+      "two_pass_queries": 60,
+      "reused_queries": 6
+    },
+    {
+      "task": "recall",
+      "duration": "30mins",
+      "queries": 60,
+      "score_percent": 51.666666666666664,
+      "D065_percent": 51.666666666666664,
+      "invalid": 0,
+      "two_pass_queries": 60,
+      "reused_queries": 6
+    },
+    {
+      "task": "recall",
+      "duration": "60mins",
+      "queries": 60,
+      "score_percent": 65.0,
+      "D065_percent": 61.666666666666664,
+      "invalid": 0,
+      "two_pass_queries": 60,
+      "reused_queries": 6
+    }
+  ],
+  "all_data_previously_exposed": true,
+  "reused_development_queries": 294,
+  "invalid_answers_total": 0
+}

@@ -1,0 +1,22 @@
+# 核心依赖 (实际运行环境, python3.10 / CUDA 12.4)
+# 完整快照: venv/bin/pip freeze
+torch==2.5.1
+torchvision==0.20.1
+transformers==4.57.6
+datasets
+pyarrow
+loguru==0.7.3
+huggingface_hub
+hydra-core==1.3.6
+omegaconf==2.3.1
+opencv-python-headless
+numpy==2.2.6
+scipy
+scikit-learn
+matplotlib
+trimesh
+pyyaml
+pytest
+lm-format-enforcer==0.11.3
+interegular==0.3.3
+# 本地第三方源码 (editable)

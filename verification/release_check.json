@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "frozen_files": 147,
+  "dependency_files": 98,
+  "mismatches": [],
+  "imports_from_release": true,
+  "new_model_calls": 0
+}

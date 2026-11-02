@@ -1,0 +1,2069 @@
+{
+  "status": "passed",
+  "queries": 294,
+  "checks": [
+    {
+      "record": 9,
+      "query_frame_id": 612,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 32,
+      "query_frame_id": 628,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 38,
+      "query_frame_id": 606,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 98,
+      "query_frame_id": 1883,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 108,
+      "query_frame_id": 1848,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 112,
+      "query_frame_id": 1824,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 146,
+      "query_frame_id": 3606,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 147,
+      "query_frame_id": 3699,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 164,
+      "query_frame_id": 3607,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 212,
+      "query_frame_id": 7314,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 218,
+      "query_frame_id": 7199,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 228,
+      "query_frame_id": 7262,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 246,
+      "query_frame_id": 16102,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 259,
+      "query_frame_id": 14575,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 277,
+      "query_frame_id": 14650,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 316,
+      "query_frame_id": 612,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 331,
+      "query_frame_id": 605,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 337,
+      "query_frame_id": 715,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 361,
+      "query_frame_id": 1890,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 368,
+      "query_frame_id": 1813,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 391,
+      "query_frame_id": 1846,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 428,
+      "query_frame_id": 3688,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 447,
+      "query_frame_id": 3656,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 448,
+      "query_frame_id": 3662,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 471,
+      "query_frame_id": 7288,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 497,
+      "query_frame_id": 7258,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 498,
+      "query_frame_id": 7291,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 500,
+      "query_frame_id": 75,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 500,
+      "query_frame_id": 132,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 500,
+      "query_frame_id": 150,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 500,
+      "query_frame_id": 158,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 500,
+      "query_frame_id": 185,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 500,
+      "query_frame_id": 198,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 500,
+      "query_frame_id": 225,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 500,
+      "query_frame_id": 600,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 500,
+      "query_frame_id": 635,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 500,
+      "query_frame_id": 675,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 502,
+      "query_frame_id": 71,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 502,
+      "query_frame_id": 142,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 502,
+      "query_frame_id": 215,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 502,
+      "query_frame_id": 285,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 502,
+      "query_frame_id": 356,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 502,
+      "query_frame_id": 425,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 502,
+      "query_frame_id": 499,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 502,
+      "query_frame_id": 571,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 502,
+      "query_frame_id": 601,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 502,
+      "query_frame_id": 642,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 543,
+      "query_frame_id": 77,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 543,
+      "query_frame_id": 155,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 543,
+      "query_frame_id": 233,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 543,
+      "query_frame_id": 311,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 543,
+      "query_frame_id": 389,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 543,
+      "query_frame_id": 467,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 543,
+      "query_frame_id": 544,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 543,
+      "query_frame_id": 608,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 543,
+      "query_frame_id": 622,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 543,
+      "query_frame_id": 701,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 550,
+      "query_frame_id": 204,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 550,
+      "query_frame_id": 355,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 550,
+      "query_frame_id": 408,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 550,
+      "query_frame_id": 612,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 550,
+      "query_frame_id": 652,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 550,
+      "query_frame_id": 1021,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 550,
+      "query_frame_id": 1429,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 550,
+      "query_frame_id": 1522,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 550,
+      "query_frame_id": 1633,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 550,
+      "query_frame_id": 1838,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 577,
+      "query_frame_id": 205,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 577,
+      "query_frame_id": 410,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 577,
+      "query_frame_id": 615,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 577,
+      "query_frame_id": 820,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 577,
+      "query_frame_id": 1025,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 577,
+      "query_frame_id": 1230,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 577,
+      "query_frame_id": 1435,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 577,
+      "query_frame_id": 1640,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 577,
+      "query_frame_id": 1775,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 577,
+      "query_frame_id": 1846,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 582,
+      "query_frame_id": 204,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 582,
+      "query_frame_id": 408,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 582,
+      "query_frame_id": 612,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 582,
+      "query_frame_id": 621,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 582,
+      "query_frame_id": 816,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 582,
+      "query_frame_id": 1020,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 582,
+      "query_frame_id": 1224,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 582,
+      "query_frame_id": 1428,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 582,
+      "query_frame_id": 1633,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 582,
+      "query_frame_id": 1837,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 613,
+      "query_frame_id": 409,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 613,
+      "query_frame_id": 819,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 613,
+      "query_frame_id": 1228,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 613,
+      "query_frame_id": 1638,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 613,
+      "query_frame_id": 2047,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 613,
+      "query_frame_id": 2377,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 613,
+      "query_frame_id": 2457,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 613,
+      "query_frame_id": 2866,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 613,
+      "query_frame_id": 3276,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 613,
+      "query_frame_id": 3687,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 629,
+      "query_frame_id": 403,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 629,
+      "query_frame_id": 807,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 629,
+      "query_frame_id": 1211,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 629,
+      "query_frame_id": 1614,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 629,
+      "query_frame_id": 2019,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 629,
+      "query_frame_id": 2422,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 629,
+      "query_frame_id": 2578,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 629,
+      "query_frame_id": 2825,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 629,
+      "query_frame_id": 3047,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 629,
+      "query_frame_id": 3635,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 641,
+      "query_frame_id": 410,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 641,
+      "query_frame_id": 821,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 641,
+      "query_frame_id": 1232,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 641,
+      "query_frame_id": 1642,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 641,
+      "query_frame_id": 1969,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 641,
+      "query_frame_id": 2050,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 641,
+      "query_frame_id": 2464,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 641,
+      "query_frame_id": 2874,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 641,
+      "query_frame_id": 3285,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 641,
+      "query_frame_id": 3697,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 665,
+      "query_frame_id": 290,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 665,
+      "query_frame_id": 547,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 665,
+      "query_frame_id": 805,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 665,
+      "query_frame_id": 2417,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 665,
+      "query_frame_id": 3221,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 665,
+      "query_frame_id": 4028,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 665,
+      "query_frame_id": 4834,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 665,
+      "query_frame_id": 5639,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 665,
+      "query_frame_id": 6019,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 665,
+      "query_frame_id": 7255,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 676,
+      "query_frame_id": 815,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 676,
+      "query_frame_id": 1631,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 676,
+      "query_frame_id": 2446,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 676,
+      "query_frame_id": 3262,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 676,
+      "query_frame_id": 4077,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 676,
+      "query_frame_id": 4895,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 676,
+      "query_frame_id": 5203,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 676,
+      "query_frame_id": 5709,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 676,
+      "query_frame_id": 6524,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 676,
+      "query_frame_id": 7343,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 697,
+      "query_frame_id": 809,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 697,
+      "query_frame_id": 992,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 697,
+      "query_frame_id": 1619,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 697,
+      "query_frame_id": 2428,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 697,
+      "query_frame_id": 3238,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 697,
+      "query_frame_id": 4047,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 697,
+      "query_frame_id": 4857,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 697,
+      "query_frame_id": 5667,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 697,
+      "query_frame_id": 6476,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 697,
+      "query_frame_id": 7289,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 5,
+      "query_frame_id": 659,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 11,
+      "query_frame_id": 603,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 41,
+      "query_frame_id": 639,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 60,
+      "query_frame_id": 1835,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 91,
+      "query_frame_id": 1799,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 94,
+      "query_frame_id": 1853,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 166,
+      "query_frame_id": 3722,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 173,
+      "query_frame_id": 3635,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 179,
+      "query_frame_id": 3627,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 230,
+      "query_frame_id": 7219,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 233,
+      "query_frame_id": 7213,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 239,
+      "query_frame_id": 7318,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 252,
+      "query_frame_id": 15836,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 258,
+      "query_frame_id": 15491,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 281,
+      "query_frame_id": 15525,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 300,
+      "query_frame_id": 971,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 338,
+      "query_frame_id": 611,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 344,
+      "query_frame_id": 630,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 362,
+      "query_frame_id": 1808,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 366,
+      "query_frame_id": 1841,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 382,
+      "query_frame_id": 1828,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 405,
+      "query_frame_id": 3677,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 418,
+      "query_frame_id": 3665,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 435,
+      "query_frame_id": 3714,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 460,
+      "query_frame_id": 7333,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 479,
+      "query_frame_id": 7498,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 494,
+      "query_frame_id": 7267,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 505,
+      "query_frame_id": 67,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 505,
+      "query_frame_id": 92,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 505,
+      "query_frame_id": 134,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 505,
+      "query_frame_id": 202,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 505,
+      "query_frame_id": 269,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 505,
+      "query_frame_id": 336,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 505,
+      "query_frame_id": 404,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 505,
+      "query_frame_id": 474,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 505,
+      "query_frame_id": 538,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 505,
+      "query_frame_id": 606,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 535,
+      "query_frame_id": 19,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 535,
+      "query_frame_id": 67,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 535,
+      "query_frame_id": 132,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 535,
+      "query_frame_id": 195,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 535,
+      "query_frame_id": 201,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 535,
+      "query_frame_id": 269,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 535,
+      "query_frame_id": 336,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 535,
+      "query_frame_id": 403,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 535,
+      "query_frame_id": 410,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 535,
+      "query_frame_id": 605,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 547,
+      "query_frame_id": 80,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 547,
+      "query_frame_id": 160,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 547,
+      "query_frame_id": 241,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 547,
+      "query_frame_id": 321,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 547,
+      "query_frame_id": 402,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 547,
+      "query_frame_id": 482,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 547,
+      "query_frame_id": 563,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 547,
+      "query_frame_id": 643,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 547,
+      "query_frame_id": 677,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 547,
+      "query_frame_id": 724,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 571,
+      "query_frame_id": 205,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 571,
+      "query_frame_id": 411,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 571,
+      "query_frame_id": 616,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 571,
+      "query_frame_id": 822,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 571,
+      "query_frame_id": 1028,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 571,
+      "query_frame_id": 1233,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 571,
+      "query_frame_id": 1327,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 571,
+      "query_frame_id": 1439,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 571,
+      "query_frame_id": 1644,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 571,
+      "query_frame_id": 1851,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 590,
+      "query_frame_id": 202,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 590,
+      "query_frame_id": 404,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 590,
+      "query_frame_id": 809,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 590,
+      "query_frame_id": 1012,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 590,
+      "query_frame_id": 1214,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 590,
+      "query_frame_id": 1416,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 590,
+      "query_frame_id": 1619,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 590,
+      "query_frame_id": 1652,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 590,
+      "query_frame_id": 1781,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 590,
+      "query_frame_id": 1822,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 591,
+      "query_frame_id": 204,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 591,
+      "query_frame_id": 409,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 591,
+      "query_frame_id": 613,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 591,
+      "query_frame_id": 640,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 591,
+      "query_frame_id": 818,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 591,
+      "query_frame_id": 1022,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 591,
+      "query_frame_id": 1227,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 591,
+      "query_frame_id": 1431,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 591,
+      "query_frame_id": 1636,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 591,
+      "query_frame_id": 1841,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 609,
+      "query_frame_id": 793,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 609,
+      "query_frame_id": 813,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 609,
+      "query_frame_id": 1219,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 609,
+      "query_frame_id": 1246,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 609,
+      "query_frame_id": 2032,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 609,
+      "query_frame_id": 2196,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 609,
+      "query_frame_id": 2845,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 609,
+      "query_frame_id": 3252,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 609,
+      "query_frame_id": 3288,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 609,
+      "query_frame_id": 3660,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 630,
+      "query_frame_id": 406,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 630,
+      "query_frame_id": 610,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 630,
+      "query_frame_id": 813,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 630,
+      "query_frame_id": 1219,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 630,
+      "query_frame_id": 1627,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 630,
+      "query_frame_id": 2034,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 630,
+      "query_frame_id": 2441,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 630,
+      "query_frame_id": 2848,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 630,
+      "query_frame_id": 3255,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 630,
+      "query_frame_id": 3664,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 643,
+      "query_frame_id": 416,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 643,
+      "query_frame_id": 538,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 643,
+      "query_frame_id": 1208,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 643,
+      "query_frame_id": 1248,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 643,
+      "query_frame_id": 1614,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 643,
+      "query_frame_id": 1665,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 643,
+      "query_frame_id": 2081,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 643,
+      "query_frame_id": 2497,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 643,
+      "query_frame_id": 2913,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 643,
+      "query_frame_id": 3748,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 651,
+      "query_frame_id": 1613,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 651,
+      "query_frame_id": 2420,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 651,
+      "query_frame_id": 3022,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 651,
+      "query_frame_id": 3227,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 651,
+      "query_frame_id": 4033,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 651,
+      "query_frame_id": 5647,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 651,
+      "query_frame_id": 5867,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 651,
+      "query_frame_id": 6454,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 651,
+      "query_frame_id": 6720,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 651,
+      "query_frame_id": 7264,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 661,
+      "query_frame_id": 820,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 661,
+      "query_frame_id": 1640,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 661,
+      "query_frame_id": 2460,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 661,
+      "query_frame_id": 3142,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 661,
+      "query_frame_id": 3280,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 661,
+      "query_frame_id": 3884,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 661,
+      "query_frame_id": 4100,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 661,
+      "query_frame_id": 5740,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 661,
+      "query_frame_id": 6560,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 661,
+      "query_frame_id": 7383,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 692,
+      "query_frame_id": 804,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 692,
+      "query_frame_id": 1608,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 692,
+      "query_frame_id": 2412,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 692,
+      "query_frame_id": 3216,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 692,
+      "query_frame_id": 4020,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 692,
+      "query_frame_id": 4418,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 692,
+      "query_frame_id": 4824,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 692,
+      "query_frame_id": 5628,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 692,
+      "query_frame_id": 6432,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    },
+    {
+      "record": 692,
+      "query_frame_id": 7239,
+      "payload_exact": true,
+      "map_pixels_exact": true,
+      "messages_exact": true
+    }
+  ],
+  "new_model_calls": 0,
+  "seconds": 239.42852738127112,
+  "D116_manifest_sha256": "5c6ae80ba08ce44ad882302359e15affeb9631a71082b8225b22de96fb6f3b58",
+  "algorithm_imports_from_new_checkout": true,
+  "reference_workspace_read_only": true
+}

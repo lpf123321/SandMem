@@ -1,0 +1,8 @@
+{
+  "display_name": "SandMem",
+  "name_status": "provisional",
+  "python_namespace": "sandbox_vlm",
+  "method": "D116 + first_last_then_oldest_observed",
+  "release_profile": "frozen_method_reference",
+  "Spatial_migration_complete": false
+}
