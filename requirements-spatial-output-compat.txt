@@ -1,0 +1,2 @@
+-r requirements-spatial.txt
+lm-format-enforcer==0.11.3

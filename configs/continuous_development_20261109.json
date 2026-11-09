@@ -1,0 +1,67 @@
+{
+  "status": "unfrozen_full_video_development_not_formal_evaluation",
+  "sampling": {
+    "fps": 1.0,
+    "question_independent": true,
+    "keep_source_frame_ids": true
+  },
+  "geometry": {
+    "upstream_repository": "https://github.com/wzzheng/StreamVGGT",
+    "upstream_commit": "05682bcb05683c4c71522e9cb618fc8ca349063c",
+    "checkpoint_repository": "lch01/StreamVGGT",
+    "checkpoint_revision": "f9ba55b1955bc4f34337c51142158a9aa2862c7f",
+    "cache_policy": "fifo_complete_sampled_frames",
+    "cache_frames_including_current": 16,
+    "camera_refinement_iterations": 4,
+    "cache_limit_bytes": 4294967296,
+    "checkpoint_sha256": "0ef9e440589da4f60445b463aec2174321ecc070cfe7939b14150e2bb0a5ed29"
+  },
+  "points": {
+    "confidence_quantile": 0.5,
+    "grid_stride": 4,
+    "max_points": 4096,
+    "min_points": 128
+  },
+  "scenes": {
+    "voxel_size_initial_diagonal_fraction": 0.02,
+    "overlap_threshold": 0.25,
+    "expansion_factor": 3.0,
+    "insufficient_geometry": "retain_frame_camera_and_existing_links_with_null_scene"
+  },
+  "qa": {
+    "total_frame_budget": "inherit_existing_query_budget",
+    "temporal_initial_fraction": 0.5,
+    "temporal_rule": "uniform_time_nearest_available_earlier_tie",
+    "remaining_rule": "relevant_instance_coverage_then_visual_diversity",
+    "visual_features": "existing_frozen_SAM_descriptors",
+    "real_frame_budget": 8,
+    "real_image_side": 384,
+    "budget": {
+      "max_images": 9,
+      "max_image_side": 1280,
+      "max_visual_tokens": 8192,
+      "max_text_tokens": 32768,
+      "max_output_tokens": 256
+    }
+  },
+  "reference": "continuous_video_reference",
+  "memory_limit_bytes": 67108864,
+  "identity": {
+    "name_policy": "exact_normalized_caption",
+    "appearance_cosine_min": 0.9,
+    "assignment": "joint_one_to_one_with_unmatched_births"
+  },
+  "object_box_min_points": 30,
+  "execution": {
+    "max_discovery_frames": 512,
+    "discovery_output_tokens": 1536,
+    "max_sam_prompts": 4096,
+    "max_seconds": 3300,
+    "discovery_schedule": {
+      "minimum": 64,
+      "per_minute": 2.0,
+      "maximum": 512
+    }
+  },
+  "configuration_role": "full_video_development"
+}

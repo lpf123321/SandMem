@@ -1,0 +1,21 @@
+{
+  "artifact_type": "backbone_transport_selection_not_evaluation_protocol",
+  "reference_config": "configs/reference_qwen.json",
+  "model_id": "Diankun/Spatial-MLLM-v1.1-Instruct-135K",
+  "revision": "635b63733ed24f76b2f1a533dd5bc32836ea6c53",
+  "official_commit": "9fc47382c7bc5ab52951e6e2e64db08fca0948ee",
+  "dtype": "bfloat16",
+  "frozen": true,
+  "user_selected": true,
+  "roles": ["coverage", "frame_relevance", "object_discovery", "answering", "verification"],
+  "method_configuration_changes": [],
+  "processor_alignment_exception": {
+    "user_approved": true,
+    "original_image_side_limit": 1280,
+    "processed_image_side_limit": 1288,
+    "source_pixels_changed": false,
+    "other_budgets_changed": false
+  },
+  "old_qwen_memory_is_full_spatial": false,
+  "formal_comparison_enabled": false
+}

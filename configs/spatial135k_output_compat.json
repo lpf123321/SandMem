@@ -1,0 +1,186 @@
+{
+  "paths": {
+    "work_dir": "work",
+    "dirs": [
+      "frames",
+      "clips",
+      "local_obs",
+      "sandbox",
+      "qa",
+      "bench",
+      "out"
+    ]
+  },
+  "video": {
+    "sample_fps": 1.0,
+    "clip_len": 16,
+    "overlap": 4
+  },
+  "perception": {
+    "discovery": {
+      "strategy": "uniform_endpoints",
+      "frames_per_clip": 4
+    },
+    "geometry": {
+      "box_estimator": "aabb",
+      "min_points": 30,
+      "depth_conf_keep_fraction": 0.5
+    },
+    "mllm": {
+      "model_id": "Diankun/Spatial-MLLM-v1.1-Instruct-135K",
+      "revision": "635b63733ed24f76b2f1a533dd5bc32836ea6c53",
+      "dtype": "bfloat16",
+      "max_new_tokens": 512,
+      "repetition_penalty": 1.05,
+      "batch_size": 16,
+      "duplicate_stop_repeats": 3,
+      "max_batch_size": 16,
+      "question_focus": true
+    },
+    "sam": {
+      "local_match_iou": 0.7,
+      "clip_feature_cache": true,
+      "config": "configs/sam2.1/sam2.1_hiera_l.yaml",
+      "checkpoint": "facebook/sam2.1-hiera-large",
+      "revision": "665f8e2ad61cf5f53d65644ff27c8ee525124610",
+      "checkpoint_file": "sam2.1_hiera_large.pt",
+      "mask_erosion": 3,
+      "feature_layer": "last"
+    },
+    "vggt": {
+      "checkpoint": "facebook/VGGT-1B",
+      "revision": "860abec7937da0a4c03c41d3c269c366e82abdf9",
+      "dtype": "bfloat16",
+      "max_views": 16
+    }
+  },
+  "alignment": {
+    "match": {
+      "appearance_cosine_min": 0.6,
+      "center_distance_diagonal_max": 0.25,
+      "projection_iou_min": 0.3,
+      "birth_policy": "spatial_separation"
+    },
+    "geom": {
+      "estimator": "ransac_umeyama_sim3",
+      "pixel_stride": 16,
+      "ransac_iterations": 256,
+      "min_inliers": 50,
+      "min_inlier_ratio": 0.5,
+      "residual_depth_fraction": 0.02,
+      "seed": 0
+    }
+  },
+  "memory": {
+    "backend_max_bytes": 67108864,
+    "capacity": {
+      "max_instances": null,
+      "max_viewpoints_per_extent": null,
+      "feature_dtype": "float32"
+    },
+    "retain_unresolved_observations": false
+  },
+  "qa": {
+    "mllm": {
+      "model_id": "Diankun/Spatial-MLLM-v1.1-Instruct-135K",
+      "revision": "635b63733ed24f76b2f1a533dd5bc32836ea6c53",
+      "dtype": "bfloat16",
+      "max_new_tokens": 1024,
+      "temperature": 0.0,
+      "citation_policy": "explicit_unique_ids",
+      "output_constraint": "none"
+    },
+    "budget": {
+      "max_images": 32,
+      "max_image_side": 768,
+      "max_visual_tokens": 8192,
+      "max_text_tokens": 4096,
+      "max_output_tokens": 64
+    },
+    "render": {
+      "draw_labels": true,
+      "color_by_instance": true
+    },
+    "selection": {
+      "max_targets": 24
+    },
+    "image_side": 384,
+    "sparse_image_side": 640,
+    "sparse_max_output_tokens": 256
+  },
+  "eval": {
+    "vsibench": {
+      "hf_config": "debiased",
+      "split": "test"
+    },
+    "mc_answer_parse": "first_letter",
+    "numeric_metric": "mra"
+  },
+  "relevance": {
+    "batch_size": 64,
+    "image_side": 256,
+    "sampled_frame_stride": 1,
+    "min_frame_separation": 3,
+    "prefetch": true,
+    "processor_device": null
+  },
+  "visual": {
+    "match": {
+      "appearance_cosine_min": 0.9,
+      "uniqueness_margin": 0.05,
+      "name_policy": "last_token",
+      "common_reference_center_distance_diagonal_max": 0.25
+    },
+    "maximum_frames_per_video": 32,
+    "sparse_maximum_frames": 8,
+    "sparse_fraction": 0.05,
+    "maximum_heavy_clips_per_video": 0,
+    "max_qa_hypotheses": 64,
+    "max_qa_notes": 16
+  },
+  "arms": [
+    "visual_memory"
+  ],
+  "seed": 0,
+  "coverage": {
+    "block_size": 16,
+    "candidates_per_block": 4,
+    "decode_workers": 4,
+    "discovery": {
+      "minimum": 64,
+      "per_minute": 2.0,
+      "maximum": 512,
+      "sparse_maximum": 8,
+      "sparse_fraction": 0.05,
+      "redundant_context_cosine": 0.995,
+      "positive_only": true
+    },
+    "continuity": {
+      "appearance_cosine_min": 0.9,
+      "uniqueness_margin": 0.05,
+      "name_policy": "last_token",
+      "maximum_gap_frames": 16,
+      "context_cosine_min": 0.95,
+      "actual_box_iou_min": 0.3
+    },
+    "maximum_answer_images": 32,
+    "maximum_possible_correspondence_notes": 16,
+    "adaptive_shared_pixels": true,
+    "weak_margin_full_check": 1.0,
+    "quantized_ledger": true,
+    "answer_selection": "temporal_coverage",
+    "qa_serialization": "actual_links",
+    "omit_redundant_uncertain_memory": true,
+    "short_track": {
+      "maximum_seeds": 32,
+      "threshold": 0.7
+    },
+    "short_track_application": "question_local",
+    "retain_ambiguities": false
+  },
+  "spatial_transport": {
+    "discovery_instruction": "quoted_question_v1",
+    "discovery_syntax": "budget_closed_discovery_v3",
+    "sparse_qa_syntax": "original_sparse_final_field_v1"
+  }
+}

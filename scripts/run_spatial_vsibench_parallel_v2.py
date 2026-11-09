@@ -1,0 +1,315 @@
+"""Frozen single-question inference, accelerated parser and two isolated GPUs.
+
+Sharding uses input order only. No model distribution, changed batch shapes,
+semantic cache reuse, repeated questions or intermediate score inspection.
+"""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import signal
+import subprocess
+import sys
+import time
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path[:0] = [str(ROOT), str(ROOT / 'scripts')]
+import run_spatial_vsibench as core
+
+
+def assignments(inputs, workers=2):
+    groups = [[] for _ in range(workers)]
+    for i, item in enumerate(inputs):
+        groups[i % workers].append(item)
+    return groups
+
+
+def reconcile_completed_signal_shutdown(parent):
+    """Accept only a signal exit AFTER both workers persisted clean results."""
+    failure = core.read(parent / 'failure.json')
+    job = str(failure['job_id'])
+    exits = failure['worker_exit_codes']
+    if len(exits) != 2 or -int(signal.SIGUSR1) not in exits or any(c not in (0, -int(signal.SIGUSR1)) for c in exits):
+        raise RuntimeError('parent failure is not a completed SIGUSR1 shutdown')
+    allocation = parent / f'allocation_{job}.json'
+    if core.read(allocation)['worker_exit_codes'] != exits:
+        raise RuntimeError('parent allocation exit mismatch')
+    receipts = {}
+    results = {}
+    for rank in range(2):
+        shard = parent / f'shard_{rank}'
+        if (shard / 'failure.json').exists():
+            raise RuntimeError('parent shard has an inference failure')
+        manifest = core.read(shard / 'manifest.json')
+        receipt_path = shard / f'worker_{job}.json'
+        receipt = core.read(receipt_path)
+        assigned = {item['id'] for item in manifest['inputs']}
+        count = 0
+        for folder in shard.glob('question_*'):
+            p = folder / 'result.json'
+            if not p.exists():
+                raise RuntimeError('parent has an unfinished question: ' + str(folder))
+            value = core.read(p)
+            if (value['question_id'] not in assigned or folder.name != f'question_{value["question_id"]}'
+                    or value['status'] not in ('ok', 'failed', 'interrupted')):
+                raise RuntimeError('parent result is outside its frozen shard contract')
+            if value['status'] == 'ok' and (value.get('full_spatial_perception') is not True or value.get('old_mllm_cache_used') is not False):
+                raise RuntimeError('parent completed result has unverified backbone provenance')
+            if value['question_id'] in results:
+                raise RuntimeError('duplicate parent question')
+            results[value['question_id']] = dict(path=str(p.resolve()), sha256=core.sha(p))
+            count += 1
+        if receipt['rank'] != rank or receipt['total'] != len(assigned) or receipt['completed'] != count:
+            raise RuntimeError('parent worker completion receipt mismatch')
+        receipts[str(rank)] = dict(path=str(receipt_path), sha256=core.sha(receipt_path), completed=count)
+    return dict(status='passed', classification='SIGUSR1 termination after worker completion; inference outputs preserved',
+        exact_signal_delivery_race_unproven=True, parent_failure_sha256=core.sha(parent / 'failure.json'),
+        allocation_sha256=core.sha(allocation), workers=receipts, completed_results=results,
+        new_model_calls=0, retries=0, original_failure_retained=True)
+
+
+def prepare(parent, out, proof):
+    if out.exists():
+        raise FileExistsError(out)
+    old = core.read(parent / 'manifest.json')
+    check = core.read(proof)
+    assert check['status'] == 'passed' and check['model_calls'] == 0
+    for name, digest in check['source_sha256'].items():
+        assert core.sha(ROOT / name) == digest, name
+    assert len(old['inputs']) == 5130 and old['scope'] == 'formal'
+    for name, digest in old['source_sha256'].items():
+        assert core.sha(ROOT / name) == digest, name
+    reconciliation = reconcile_completed_signal_shutdown(parent) if (parent / 'failure.json').exists() else None
+    out.mkdir()
+    if reconciliation is not None:
+        core.write(out / 'parent_shutdown_reconciliation.json', reconciliation)
+    manifest = dict(old)
+    source = dict(old['source_sha256'])
+    for name in ('sandbox_vlm/backbones/spatial_fast_syntax_v2.py',
+                 'scripts/run_spatial_vsibench_parallel_v2.py', 'scripts/run_spatial_vsibench_parallel_v2.sbatch',
+                 'scripts/profile_spatial_discovery_speed.py', 'scripts/profile_spatial_discovery_speed_v2.py'):
+        source[name] = core.sha(ROOT / name)
+    for name in source:
+        dest = out / 'source' / name
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / name, dest)
+    (out / 'native_sam').symlink_to((parent / 'native_sam').resolve(), target_is_directory=True)
+    core.write(out / 'parser_equivalence.json', check)
+    manifest.update(source_sha256=source, parent_formal=str(parent), parent_manifest_sha256=core.sha(parent / 'manifest.json'),
+        execution_optimization=dict(workers=2, device='one unchanged single-GPU model per worker',
+            assignment='original input position modulo 2', discovery_parser='v2 exact-token-mask-equivalent traversal; impossible literal-control heads skipped; immutable stack lookup cache',
+            equivalence_receipt_sha256=core.sha(proof), changed_method_settings=False,
+            cross_question_semantic_cache=False, no_retries=True,
+            hardware_policy='two A30; scheduler dry-run verified the A100 per-job limit is one; no implicit GPU sharing'))
+    core.write(out / 'manifest.json', manifest)
+    inherited = []
+    for rank, items in enumerate(assignments(old['inputs'])):
+        shard = out / f'shard_{rank}'
+        shard.mkdir()
+        sub = dict(manifest, inputs=items, shard_rank=rank, global_questions=5130)
+        core.write(shard / 'manifest.json', sub)
+        (shard / 'native_sam').symlink_to((out / 'native_sam').resolve(), target_is_directory=True)
+        for item in items:
+            name = f'question_{item["id"]}'
+            previous = parent / name
+            if (previous / 'result.json').exists():
+                assert core.read(previous / 'result.json')['question_id'] == item['id']
+                (shard / name).symlink_to(previous.resolve(), target_is_directory=True)
+                (out / name).symlink_to(previous.resolve(), target_is_directory=True)
+                inherited.append(dict(question_id=item['id'], source=str(previous.resolve()),
+                    result_sha256=core.sha(previous / 'result.json')))
+            else:
+                if previous.exists():
+                    raise RuntimeError('uncompleted parent input must not be retried: ' + name)
+                (out / name).symlink_to(shard / name, target_is_directory=True)
+    core.write(out / 'inherited_results.json', inherited)
+    core.write(out / 'authorization.json', dict(user_request='2026-11-07 继续优化；保持原D116，仅做等价工程加速',
+        scope='equivalent parser, fixed input-order sharding, two A30 cards within verified per-job limit',
+        manifest_sha256=core.sha(out / 'manifest.json'), old_results_preserved=True, scores_read=False))
+    return manifest
+
+
+def worker(out, rank):
+    original_signal = signal.signal
+    early_checkpoint = [False]
+    original_signal(signal.SIGUSR1, lambda *_: early_checkpoint.__setitem__(0, True))
+    import torch
+    from sandbox_vlm.backbones import spatial_bundle
+    from sandbox_vlm.backbones.spatial_fast_syntax_v2 import install_fast_discovery_grammar
+    original = spatial_bundle.create_spatial_backbone
+
+    def factory(*args, **kwargs):
+        bundle = original(*args, **kwargs)
+        install_fast_discovery_grammar(bundle.discovery.grammar)
+        return bundle
+
+    spatial_bundle.create_spatial_backbone = factory
+    shard = out / f'shard_{rank}'
+    if torch.cuda.device_count() != 1:
+        raise RuntimeError('each worker must see exactly one allocated GPU')
+    props = torch.cuda.get_device_properties(0)
+    core.write(shard / ('hardware_' + os.environ['SLURM_JOB_ID'] + '.json'), dict(
+        rank=rank, cuda_visible_devices=os.environ['CUDA_VISIBLE_DEVICES'], visible_gpus=1,
+        name=props.name, total_memory_bytes=props.total_memory, uuid=str(getattr(props, 'uuid', 'unavailable'))))
+    def register_handler(kind, handler):
+        previous = original_signal(kind, handler)
+        if kind == signal.SIGUSR1 and early_checkpoint[0] and callable(handler):
+            handler(signal.SIGUSR1, None)
+            early_checkpoint[0] = False
+        return previous
+    signal.signal = register_handler
+    try:
+        core.run(shard)
+    finally:
+        signal.signal = original_signal
+        original_signal(signal.SIGUSR1, signal.SIG_IGN)
+    items = core.read(shard / 'manifest.json')['inputs']
+    completed = [r['id'] for r in items if (shard / f'question_{r["id"]}' / 'result.json').exists()]
+    core.write(shard / ('worker_' + os.environ['SLURM_JOB_ID'] + '.json'),
+        dict(rank=rank, completed=len(completed), total=len(items), all_complete=len(completed) == len(items)))
+
+
+def checkpoint_children(children, out, job, sent):
+    for rank, child in enumerate(children):
+        receipt = out / f'shard_{rank}' / f'worker_{job}.json'
+        if rank not in sent and not receipt.exists() and child.poll() is None:
+            child.send_signal(signal.SIGUSR1)
+            sent.add(rank)
+
+
+def run_workers(out):
+    cards = os.environ['CUDA_VISIBLE_DEVICES'].split(',')
+    if len(cards) != 2 or len(set(cards)) != 2:
+        raise RuntimeError('two explicitly allocated GPUs required')
+    children = []
+    files = []
+    job = os.environ['SLURM_JOB_ID']
+    started = time.time()
+    for rank, card in enumerate(cards):
+        log = (out / f'shard_{rank}' / f'slurm_{job}.log').open('xb')
+        files.append(log)
+        env = dict(os.environ, CUDA_VISIBLE_DEVICES=card)
+        children.append(subprocess.Popen([sys.executable, '-B', '-u', str(Path(__file__).resolve()),
+            'worker', '--output', str(out), '--rank', str(rank)], env=env, stdout=log, stderr=subprocess.STDOUT))
+
+    signaled = set()
+    def checkpoint(*_):
+        checkpoint_children(children, out, job, signaled)
+
+    signal.signal(signal.SIGUSR1, checkpoint)
+    stopping = False
+    while any(c.poll() is None for c in children):
+        if not stopping and any(c.poll() not in (None, 0) for c in children):
+            checkpoint()
+            stopping = True
+        time.sleep(5)
+    exits = [c.wait() for c in children]
+    for f in files:
+        f.close()
+    core.write(out / f'allocation_{job}.json', dict(job_id=job, allocated_gpus=2,
+        partition=os.environ.get('SLURM_JOB_PARTITION'),
+        hardware_receipts=[str(out / f'shard_{rank}' / f'hardware_{job}.json') for rank in range(2)],
+        wall_seconds=time.time() - started, worker_exit_codes=exits,
+        resource_note='allocated GPU time is twice allocation wall time; per-worker peaks archived separately'))
+    if any(exits):
+        core.write(out / 'failure.json', dict(job_id=job, worker_exit_codes=exits, no_automatic_retry=True))
+        raise RuntimeError('worker failed; preserve all outputs and stop continuation')
+
+
+def live(job):
+    rows = subprocess.check_output(['squeue', '-h', '-u', 'u2024311136', '-o', '%i'], text=True).split()
+    return str(job) in rows
+
+
+def choose_resources():
+    # A scheduler dry-run verified gpu permits only one A100 per job, while
+    # this isolated two-worker executor requires two distinct GPU devices.
+    return dict(partition='gpu-a30', gres='gpu:a30:2',
+        reason='verified two-GPU A30 allocation; A100 per-job limit is one GPU')
+
+
+def control(parent, out, proof, state_dir):
+    state_dir.mkdir(parents=True, exist_ok=True)
+    status = state_dir / 'parallel_controller.json'
+    # Retire only our verified scheduler process; inference stops at a question
+    # boundary through the already-frozen SIGUSR1 handler.
+    pidfile = ROOT / 'work/spatial_speed_20261107_01/parallel_controller_pid_v3.json'
+    pid = core.read(pidfile)['pid']
+    cmdline = Path(f'/proc/{pid}/cmdline')
+    if cmdline.exists():
+        command = cmdline.read_bytes().replace(b'\0', b' ').decode()
+        if 'run_spatial_vsibench_parallel.py control' not in command or str(parent) not in command:
+            raise RuntimeError('scheduler PID identity mismatch')
+        os.kill(pid, signal.SIGTERM)
+    old_job = core.read(parent / 'active_session.json')['job_id']
+    checkpoint_receipt = parent / f'checkpoint_requested_{old_job}.json'
+    if live(old_job) and not checkpoint_receipt.exists():
+        core.write(checkpoint_receipt, dict(job_id=old_job, purpose='preserve current questions; one handoff request'))
+        subprocess.run(['scancel', '--signal=USR1', '--batch', str(old_job)], check=True)
+    core.write(status, dict(status='waiting_for_parent_question_boundary', parent_job=old_job, pid=os.getpid()))
+    while live(old_job):
+        time.sleep(20)
+    prepare(parent, out, proof)
+    while True:
+        manifest = core.read(out / 'manifest.json')
+        results = []
+        for item in manifest['inputs']:
+            p = out / f'question_{item["id"]}' / 'result.json'
+            if p.exists():
+                result = core.read(p)
+                assert result['question_id'] == item['id']
+                results.append(result)
+        core.write(out / 'progress.json', dict(completed=len(results), total=5130, status='continuation_required'))
+        if len(results) == 5130:
+            (out / 'predictions.jsonl').write_text(''.join(json.dumps(r, ensure_ascii=False) + '\n' for r in results))
+            core.write(out / 'completion.json', dict(status='completed', questions=5130, manifest_sha256=core.sha(out / 'manifest.json')))
+            subprocess.run([sys.executable, '-B', str(ROOT / 'scripts/baselines_vsibench/score.py'), '--root', manifest['data_root'],
+                '--predictions', str(out / 'predictions.jsonl'), '--output', str(out / 'scores.json')], check=True)
+            core.write(status, dict(status='completed_and_scored', output=str(out)))
+            return
+        resources = choose_resources()
+        args = ['sbatch', '--parsable', '--job-name=sandmem-spatial-2gpu-v2', '--partition=' + resources['partition'],
+            '--gres=' + resources['gres'], '--cpus-per-task=2', '--time=12:00:00', '--signal=B:USR1@900',
+            '--output=' + str(out / 'slurm_%j.out'), '--error=' + str(out / 'slurm_%j.err'),
+            str(ROOT / 'scripts/run_spatial_vsibench_parallel_v2.sbatch'), str(out)]
+        submitted = subprocess.run(args, cwd=ROOT, text=True, capture_output=True)
+        record = dict(argv=args, resources=resources, returncode=submitted.returncode, stdout=submitted.stdout, stderr=submitted.stderr, time=time.time())
+        with (out / 'submission_receipts.jsonl').open('a') as f:
+            f.write(json.dumps(record) + '\n')
+        if submitted.returncode:
+            core.write(status, dict(status='submission_failed', receipt=record))
+            raise RuntimeError(submitted.stderr)
+        job = submitted.stdout.strip().split(';')[0]
+        core.write(out / 'active_session.json', dict(job_id=job, workers=2))
+        core.write(out / 'progress.json', dict(status='running_or_queued',
+            completed_at_session_start=len(results), total=5130, workers=2, job_id=job))
+        core.write(status, dict(status='running_or_queued', job_id=job, completed=len(results), output=str(out)))
+        while live(job):
+            time.sleep(20)
+        if (out / 'failure.json').exists():
+            core.write(status, dict(status='stopped_worker_failure', failure=core.read(out / 'failure.json')))
+            return
+        receipt = out / f'allocation_{job}.json'
+        if not receipt.exists():
+            core.write(status, dict(status='stopped_missing_allocation_receipt', job_id=job))
+            return
+
+
+if __name__ == '__main__':
+    p = argparse.ArgumentParser()
+    p.add_argument('action', choices=['worker', 'run-workers', 'control'])
+    p.add_argument('--output', type=Path, required=True)
+    p.add_argument('--rank', type=int)
+    p.add_argument('--parent', type=Path)
+    p.add_argument('--proof', type=Path)
+    p.add_argument('--state-dir', type=Path)
+    a = p.parse_args()
+    out = a.output.resolve()
+    if a.action == 'worker':
+        worker(out, a.rank)
+    elif a.action == 'run-workers':
+        run_workers(out)
+    else:
+        control(a.parent.resolve(), out, a.proof.resolve(), a.state_dir.resolve())

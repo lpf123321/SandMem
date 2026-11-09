@@ -1,3 +1,7 @@
+> 2026-11-09：重复发现故障已修复，613帧完整离线开发验收通过；可恢复小规模离线测试。正式全任务/流式评测仍有独立门槛。见 [修复与真实验收](docs/CONTINUOUS_DISCOVERY_REPAIR_20261109.md)。
+
+> **2026-11-09 current model correction:** The continuous candidate is now in `sandbox_vlm.continuous_model`, with executable entry `scripts/run_continuous_model.py` and API `create_continuous_model`. It processes all sampled frames with StreamVGGT FIFO, maintains Scenes, renders actual 3D evidence, and selects QA frames by temporal initialization, instance coverage and visual diversity. See [implementation and usage](docs/CONTINUOUS_MODEL_20261109.md). The D116 aliases described below remain the protected historical reference; old scores do not belong to this new candidate.
+
 # SandMem
 
 Training-free long-video spatial question answering with **observation-linked instance memory and a rendered 3D sandbox**. The project name is provisional; the stable Python namespace is `sandbox_vlm`.

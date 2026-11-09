@@ -1,0 +1,2 @@
+[2026-11-06 19:20:46,589] [INFO] [real_accelerator.py:254:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+slurmstepd: error: *** JOB 17455 ON gpu4 CANCELLED AT 2026-11-06T19:21:24 ***

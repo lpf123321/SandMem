@@ -1,0 +1,9 @@
+#!/bin/bash
+#SBATCH --no-requeue
+set -euo pipefail
+cd "${SLURM_SUBMIT_DIR:?}"
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+export HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false PYTHONDONTWRITEBYTECODE=1
+SPATIAL_LIBRARY_DIRS="$(work/envs/spatial135k/bin/python -B -c 'import sys; from pathlib import Path; paths=[d for p in sys.path if p for d in [*Path(p).glob("nvidia/*/lib"),Path(p)/"cusparselt/lib"] if d.is_dir()]; print(":".join(dict.fromkeys(str(d) for d in paths)))')"
+export LD_LIBRARY_PATH="$SPATIAL_LIBRARY_DIRS${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+exec work/envs/spatial135k/bin/python -B -u scripts/run_spatial_vsibench_parallel_v2.py run-workers --output "${1:?frozen directory}"
